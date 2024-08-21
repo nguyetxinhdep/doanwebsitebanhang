@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_category', function (Blueprint $table) {
-            $table->string('id',40)->primary();
-            $table->string('name',255);
+        Schema::create('payment_methods', function (Blueprint $table) {
+            $table->string('id', 40)->primary();
+            $table->string('name', 50);
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_category');
+        Schema::dropIfExists('payment_methods');
     }
 };

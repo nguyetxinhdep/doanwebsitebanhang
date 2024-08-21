@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shopping_cart', function (Blueprint $table) {
+        Schema::create('shopping_carts', function (Blueprint $table) {
             $table->string('id',40)->primary();
             $table->string('product_id',40);
             $table->unsignedInteger('quantity');
@@ -20,7 +20,7 @@ return new class extends Migration
 
             // Khóa ngoại
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shopping_cart');
+        Schema::dropIfExists('shopping_carts');
     }
 };

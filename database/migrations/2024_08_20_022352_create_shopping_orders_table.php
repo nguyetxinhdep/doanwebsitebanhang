@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shopping_order', function (Blueprint $table) {
+        Schema::create('shopping_orders', function (Blueprint $table) {
             $table->string('id',40)->primary();
             $table->date('date_order');
             $table->string('total_price', 50);
@@ -24,7 +24,7 @@ return new class extends Migration
 
             // Khóa ngoại
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('payment_method_id')->references('id')->on('payment_method')->onDelete('cascade');
+            $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shopping_order');
+        Schema::dropIfExists('shopping_orders');
     }
 };

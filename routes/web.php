@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\YourController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('test');
 });
+
+// routes/web.php
+Route::get('/search', [YourController::class, 'search'])->name('search');
+
